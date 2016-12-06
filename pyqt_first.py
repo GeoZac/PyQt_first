@@ -16,8 +16,13 @@ class MyApp(QtGui.QMainWindow, Ui_MainWindow):
     def CalculateTax(self):
         price = int(self.price_box.toPlainText())
         tax = (self.tax_rate.value())
-        total_price = price  + ((tax / 100) * price)
-        total_price_string = "The total price with tax is: " + str(total_price)
+        calc_tax = ((tax / 100) * price)
+        total_price = price  + calc_tax
+        total_price_string = str(total_price)
+        price_str = str(price)
+        tax_str = str(calc_tax)
+        self.textEdit_2.setText(price_str)
+        self.textEdit.setText(tax_str)
         self.results_window.setText(total_price_string)
         
 if __name__ == "__main__":
